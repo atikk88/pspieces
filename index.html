@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Thrifted vintage denim, Y2K tees and more, hand-picked by P in Kamloops, BC.">
+<style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>P's Pieces</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap">
+<style>
+/* Layout: derschutze-style dense square grid (image-first, info on hover), bold typewriter type, sticky indigo header */
+:root{
+  --bg:#f5f2fc; --surface:#ffffff; --fg:#1d1640; --muted:#5f5a7d; --line:#d8d2ee;
+  --purple:#3a2a7a; --yellow:#f6c445; --blue:#2f6fd6; --green:#2e9d63; --onpurple:#f5f2fc; --pink:#ff7eb9;
+  --mono:"Courier Prime","Courier New",Courier,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#120d24; --surface:#1c1636; --fg:#efeafc; --muted:#a59fc4; --line:#2e2652;
+  --purple:#2a1d5c; --yellow:#f6c445; --blue:#5b93ee; --green:#4cc285; --onpurple:#f5f2fc; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#120d24; --surface:#1c1636; --fg:#efeafc; --muted:#a59fc4; --line:#2e2652;
+  --purple:#2a1d5c; --yellow:#f6c445; --blue:#5b93ee; --green:#4cc285; --onpurple:#f5f2fc; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--mono);font-weight:700;font-size:14px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--purple)}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:2px}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--purple);color:var(--onpurple);border-bottom:3px solid var(--green)}
+.bar{display:flex;align-items:center;gap:20px;padding-block:12px;flex-wrap:wrap}
+.logo{font-size:22px;text-decoration:none;white-space:nowrap;border:2px solid var(--onpurple);padding:2px 8px;text-transform:lowercase}
+.logo span{background:var(--yellow);color:#1d1640;padding:0 4px;margin-left:4px}
+nav{display:flex;gap:16px;flex-wrap:wrap;text-transform:uppercase;font-size:13px}
+nav a{text-decoration:none}nav a:hover{color:var(--pink);text-decoration:underline}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;border:2px solid var(--onpurple);padding:4px 8px;min-width:0;flex:0 1 220px}
+.search input{background:none;border:0;color:var(--onpurple);font:inherit;width:100%;min-width:0;outline:none}
+.search input::placeholder{color:rgba(245,242,252,.65)}
+
+.strip{background:var(--yellow);color:#1d1640;overflow:hidden;white-space:nowrap;border-bottom:3px solid var(--blue)}
+.strip div{display:inline-block;padding-block:6px;font-size:12px;animation:roll 30s linear infinite}
+@keyframes roll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.strip div{animation:none}}
+
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:end;padding-block:36px 24px}
+h1,h2{font-weight:700;text-wrap:balance;margin:0}
+h1{font-size:clamp(26px,4.6vw,46px);line-height:1.05;text-transform:lowercase}
+h1 em{font-style:normal;color:var(--blue)}
+.hero p{margin:0;color:var(--muted);max-width:46ch;font-weight:400}
+.where{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.pill{border:2px solid var(--fg);padding:5px 12px;text-decoration:none;text-transform:uppercase;font-size:12px}
+.pill:hover{background:var(--green);border-color:var(--green);color:#fff}
+
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-block:8px 12px;border-bottom:2px solid var(--fg);flex-wrap:wrap}
+h2{font-size:18px}
+.count{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding-block:12px}
+.chip{border:2px solid var(--line);background:var(--surface);padding:4px 10px;text-transform:uppercase;font-size:12px}
+.chip:hover{border-color:var(--blue)}
+.chip[aria-pressed="true"]{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* dense square grid like the reference: 4 across, 2px seams */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;background:var(--line);border:2px solid var(--line);margin-bottom:48px}
+.card{background:var(--surface);border:0;padding:0;text-align:left;position:relative;display:block}
+.thumb{aspect-ratio:1;max-width:100%;width:100%;position:relative;overflow:hidden;background:var(--surface)}
+.thumb img{width:100%;height:100%;object-fit:cover;transform:scale(.95);transition:transform .3s}
+.card:hover .thumb img{transform:scale(.99)}
+.card::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 2px var(--pink);opacity:0;transition:opacity .2s;pointer-events:none}
+.card:hover::after,.card:focus-visible::after{opacity:1}
+h2::before{content:"";display:inline-block;width:10px;height:10px;background:var(--pink);margin-right:8px;vertical-align:middle}
+.chip[data-c="Sale"]{border-color:var(--pink)}
+.chip[data-c="Sale"][aria-pressed="true"]{background:var(--pink);border-color:var(--pink);color:#1d1640}
+.ph{position:absolute;inset:0;display:grid;place-items:center;font-size:36px;color:rgba(29,22,64,.7)}
+.tag{position:absolute;left:6px;bottom:6px;background:var(--green);color:#fff;font-size:12px;padding:2px 7px;font-variant-numeric:tabular-nums;border:1.5px solid #fff}
+.tag s{font-weight:400;opacity:.8;margin-left:4px}
+.info{position:absolute;inset:auto 0 0 0;padding:8px;background:var(--purple);color:var(--onpurple);font-size:12px;display:grid;gap:2px;transform:translateY(100%);transition:transform .2s}
+.info s{opacity:.7;font-weight:400}
+.info .pt{justify-self:start;background:var(--green);color:#fff;border:1.5px solid #fff;padding:1px 6px}
+.card:hover .info,.card:focus-visible .info{transform:none}
+.card:hover .tag,.card:focus-visible .tag{opacity:0}
+.sold{position:absolute;top:10px;right:-30px;transform:rotate(35deg);background:#c8321e;color:#fff;font-size:11px;padding:3px 34px}
+.empty{grid-column:1/-1;padding:40px 16px;color:var(--muted);background:var(--surface);margin:0}
+
+dialog{border:2px solid var(--fg);padding:0;background:var(--surface);color:var(--fg);max-width:min(820px,calc(100vw - 32px));width:100%}
+dialog::backdrop{background:rgba(18,13,36,.65)}
+.qv{display:grid;grid-template-columns:1.1fr 1fr;align-items:start}
+.gal{position:relative;aspect-ratio:1;max-width:100%;background:var(--surface);min-width:0;align-self:center;border:2px solid var(--pink);margin:12px}
+.track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.track img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border:2px solid #1d1640;background:var(--yellow);color:#1d1640;font-size:18px;line-height:1}
+.nav.prev{left:8px}.nav.next{right:8px}.nav[disabled]{opacity:.35;cursor:default}
+.dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+.dots button{width:9px;height:9px;padding:0;border:1.5px solid #fff;background:rgba(29,22,64,.45);border-radius:50%}
+.dots button[aria-current="true"]{background:var(--yellow)}
+.ctr{position:absolute;top:10px;left:10px;background:rgba(29,22,64,.75);color:#fff;font-size:11px;padding:2px 6px}
+.track img{cursor:zoom-in}
+#lb{border:0;background:transparent;padding:0;max-width:100vw;max-height:100vh;width:100vw;height:100vh;overflow:hidden}
+#lb::backdrop{background:rgba(12,8,26,.92)}
+.lb-in{width:100%;height:100%;display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(60px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(60px,env(safe-area-inset-left,0px));box-sizing:border-box}
+#lbImg{max-width:100%;height:calc(100vh - 80px);width:auto;object-fit:contain;border:2px solid var(--pink);background:#000;display:block}
+.lb-btn{position:fixed;top:50%;transform:translateY(-50%);width:44px;height:44px;border:2px solid #1d1640;background:var(--yellow);color:#1d1640;font-size:22px;line-height:1;z-index:2}
+.lb-btn.prev{left:max(8px,env(safe-area-inset-left,0px))}.lb-btn.next{right:max(8px,env(safe-area-inset-right,0px))}
+.lb-btn[disabled]{opacity:.35;cursor:default}
+.lb-x{position:fixed;top:max(12px,env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));width:40px;height:40px;background:var(--pink);color:#1d1640;border:2px solid #1d1640;z-index:2}
+.lb-ctr{position:fixed;bottom:max(14px,env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);color:#fff;font-size:13px;background:rgba(29,22,64,.8);padding:3px 10px;border:1.5px solid var(--pink)}
+.desc{white-space:pre-line;font-weight:400;font-size:13px;line-height:1.55;margin:0;border-top:2px solid var(--line);padding-top:12px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;padding-block:0 14px;align-items:center}
+.filters label{display:flex;gap:6px;align-items:center;font-size:12px;text-transform:uppercase}
+.filters select{font:inherit;font-size:13px;background:var(--surface);color:var(--fg);border:2px solid var(--line);padding:4px 6px;max-width:100%}
+.filters select:focus-visible{border-color:var(--blue)}
+.clear{background:none;border:0;text-decoration:underline;font-size:12px;color:var(--muted)}
+.qv-body{max-height:min(86vh,760px);overflow-y:auto}
+.qv-body{padding:24px;display:grid;gap:12px;align-content:start;min-width:0}
+.qv-body h3{font-weight:700;font-size:18px;margin:0;text-transform:lowercase}
+.price{justify-self:start;font-size:20px;background:var(--green);color:#fff;border:2px solid #fff;outline:2px solid var(--green);padding:3px 10px;font-variant-numeric:tabular-nums}
+.price s{font-size:14px;font-weight:400;opacity:.85;margin-left:6px}
+dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0;font-size:13px;font-weight:400}dt{color:var(--muted)}dd{margin:0}
+.buy{display:grid;gap:8px}
+.btn{display:block;text-align:center;padding:11px;text-decoration:none;text-transform:uppercase;font-size:12px;border:2px solid var(--fg)}
+.btn.primary{background:var(--green);color:#fff;border-color:var(--green)}
+.btn.primary:hover{background:var(--blue);border-color:var(--blue)}
+.x{position:absolute;top:10px;right:10px;background:var(--yellow);color:#1d1640;border:2px solid #1d1640;width:34px;height:34px;z-index:2}
+.note{font-size:11px;color:var(--muted);font-weight:400}
+
+footer{background:var(--purple);color:var(--onpurple);font-size:12px;border-top:3px solid var(--yellow)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:20px}
+
+@media (max-width:720px){.hero{grid-template-columns:1fr;padding-block:24px 16px}.qv{grid-template-columns:1fr}.search{flex-basis:100%;margin-left:0}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.info{display:none}.card:hover .tag{opacity:1}}
+@media (min-width:721px) and (max-width:960px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">P'S<span>PIECES</span></a>
+    <nav aria-label="Main">
+      <a href="#shop">Shop</a><a href="#shop" id="navSale">On sale</a><a href="#help">Help</a>
+      <a href="https://www.facebook.com/marketplace/profile/61565458614840/" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <label class="search"><span aria-hidden="true">⌕</span><input id="q" type="search" placeholder="Search the rack" aria-label="Search listings"></label>
+  </div>
+</header>
+
+<div class="strip" aria-label="Store policy"><div id="strip"></div></div>
+
+<main id="top" class="wrap">
+  <section class="hero">
+    <h1>thrifted. picked. <em>priced to move.</em></h1>
+    <div>
+      <p>Vintage denim, Y2K tees, Ralph Lauren, Diesel and more. Every piece is one of one, hand-picked by P in Kamloops, BC. Tap a piece to see every photo and message P on Marketplace.</p>
+      <div class="where">
+        <a class="pill" href="https://www.facebook.com/marketplace/profile/61565458614840/" target="_blank" rel="noopener">Marketplace ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop">
+    <div class="sec-head"><h2>categories</h2><span class="count" id="count"></span></div>
+    <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+    <div class="filters">
+      <label for="fSize">Size <select id="fSize"></select></label>
+      <label for="fPrice">Price <select id="fPrice">
+        <option value="">Any price</option><option value="0-19">Under $20</option><option value="20-29">$20–$29</option><option value="30-39">$30–$39</option><option value="40-9999">$40 and up</option>
+      </select></label>
+      <label for="fSort">Sort <select id="fSort"><option value="">Newest</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select></label>
+      <button class="clear" id="clear" hidden>Clear filters</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="help" class="sec-head" style="border:0;border-top:2px solid var(--fg);padding-block:24px 48px;display:grid;gap:8px">
+    <h2>welcome</h2>
+    <p style="margin:0;color:var(--muted);max-width:60ch;font-weight:400">How it works: tap a piece, then message P on Marketplace to claim it. First to pay gets it. Local pickup or delivery in Kamloops, BC, shipping available. Discounts when you buy multiple pieces. All sales final.</p>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 P's Pieces</span><span>All sales final · No returns, refunds or exchanges</span></div></footer>
+
+<dialog id="qv" aria-labelledby="qvTitle">
+  <button class="x" id="close" aria-label="Close">✕</button>
+  <div class="qv">
+    <div class="gal">
+      <div class="track" id="track" tabindex="0" aria-label="Item photos"></div>
+      <span class="ctr" id="ctr"></span>
+      <button class="nav prev" id="prev" aria-label="Previous photo">‹</button>
+      <button class="nav next" id="next" aria-label="Next photo">›</button>
+      <div class="dots" id="dots"></div>
+    </div>
+    <div class="qv-body">
+      <h3 id="qvTitle"></h3>
+      <div class="price" id="qvPrice"></div>
+      <dl id="qvDl"></dl>
+      <div class="buy"><a class="btn primary" id="qvFb" target="_blank" rel="noopener">Message on Marketplace</a></div>
+      <p class="desc" id="qvDesc"></p>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="lb" aria-label="Photo viewer">
+  <div class="lb-in" id="lbIn"><img id="lbImg" alt=""></div>
+  <button class="lb-btn prev" id="lbPrev" aria-label="Previous photo">‹</button>
+  <button class="lb-btn next" id="lbNext" aria-label="Next photo">›</button>
+  <button class="lb-x" id="lbX" aria-label="Close photo">✕</button>
+  <span class="lb-ctr" id="lbCtr"></span>
+</dialog>
+
+<script>
+const PRODUCTS = [{"id": "1878672866838307", "name": "Quicksilver beanie", "price": 10, "cat": "Accessories", "fb": "https://www.facebook.com/marketplace/item/1878672866838307/", "size": "One size", "sk": ["One size"], "cond": "Used - like new", "brand": "", "desc": "Unisex Quicksilver beanie \nDm for any measurements or questions \nGreat condition, no stains or flaws \nCome pick up or shipping available \n$10 for local delivery \nDiscounted items when buying multiple", "imgs": ["img/1878672866838307-0.jpg", "img/1878672866838307-1.jpg"]}, {"id": "1417010570607776", "name": "Warehouse one flared jeans", "price": 35, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/1417010570607776/", "size": "33x31", "sk": ["W33"], "cond": "Used - Good", "brand": "Warehouse one", "desc": "Vintage warehouse one 5 pocket flared \nSize 33x31\nGreat condition, no stains or flaws\nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery \nDiscontinued item when buying multiple", "imgs": ["img/1417010570607776-0.jpg", "img/1417010570607776-1.jpg", "img/1417010570607776-2.jpg", "img/1417010570607776-3.jpg", "img/1417010570607776-4.jpg"]}, {"id": "1645657610336011", "name": "Reversible old Milwaukee hunting beanie", "price": 5, "cat": "Accessories", "fb": "https://www.facebook.com/marketplace/item/1645657610336011/", "size": "One size", "sk": ["One size"], "cond": "Used - Good", "brand": "", "desc": "Reversible old Milwaukee hunting beanie\nGood condition, hole developing in back\nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery \nDiscounted item when buying multiple", "imgs": ["img/1645657610336011-0.jpg", "img/1645657610336011-1.jpg", "img/1645657610336011-2.jpg"]}, {"id": "28676703745334967", "name": "Unisex Bc lions beanie", "price": 15, "cat": "Accessories", "fb": "https://www.facebook.com/marketplace/item/28676703745334967/", "size": "One size", "sk": ["One size"], "cond": "Used - like new", "brand": "", "desc": "Unisex cfl Bc lions beanie\nGreat condition, no flaws or anything\nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery\nDiscounted items when buying multiple", "imgs": ["img/28676703745334967-0.jpg", "img/28676703745334967-1.jpg", "img/28676703745334967-2.jpg"]}, {"id": "1450554433694080", "name": "True religion tee shirt", "price": 15, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/1450554433694080/", "size": "L", "sk": ["L"], "cond": "Used - Fair", "brand": "", "desc": "True religion tee \nSize large \nShirt is in good condition, oil stain on front of shirt, visible in first photo \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery \nDiscounted items when buying multiple", "imgs": ["img/1450554433694080-0.jpg", "img/1450554433694080-1.jpg", "img/1450554433694080-2.jpg"]}, {"id": "2105727570042285", "name": "vintage 90s Nautica denim", "price": 30, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/2105727570042285/", "size": "36x30", "sk": ["W36"], "cond": "Used - like new", "brand": "Nautica", "desc": "Vintage 90s 5 pocket nautica denim \nSize 36x30 \nGreat condition, no stains or flaws \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery \nDiscounted items when buying multiple \n\nTags\nDenim\nNautica\nVintage\n90s", "imgs": ["img/2105727570042285-0.jpg", "img/2105727570042285-1.jpg", "img/2105727570042285-2.jpg", "img/2105727570042285-3.jpg", "img/2105727570042285-4.jpg"]}, {"id": "1765321551391902", "name": "Ralph Lauren open cuff sweats", "price": 30, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/1765321551391902/", "size": "M", "sk": ["M"], "cond": "Used - like new", "brand": "Polo Ralph Lauren", "desc": "Baggy open cuff polo Ralph Lauren sweatpants \nSize medium \nGreat condition, no stains or flaws\nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery \nDiscounted items when buying multiple", "imgs": ["img/1765321551391902-0.jpg", "img/1765321551391902-1.jpg", "img/1765321551391902-2.jpg", "img/1765321551391902-3.jpg"]}, {"id": "2837018056677735", "name": "Vintage y2k point zero jeans", "price": 30, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/2837018056677735/", "size": "32x32", "sk": ["W32"], "cond": "Used - like new", "brand": "Point zero", "desc": "Vintage y2k point zero jeans \nSize 32x32\nGreat condition, no stains or flaws\nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery\nTags\nY2K\nVintage", "imgs": ["img/2837018056677735-0.jpg", "img/2837018056677735-1.jpg", "img/2837018056677735-2.jpg", "img/2837018056677735-3.jpg"], "was": 35}, {"id": "1128933402946351", "name": "Vintage y2k Nike jersey tee", "price": 25, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/1128933402946351/", "size": "XXL", "sk": ["XXL"], "cond": "New", "brand": "", "desc": "Vintage y2k brown nike jersey \nGrey tag, 2000-2006 \nSize XXL \nGreat condition, no stains or flaws \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1128933402946351-0.jpg", "img/1128933402946351-1.jpg", "img/1128933402946351-2.jpg"]}, {"id": "2122830981936669", "name": "Y2K cult tee", "price": 25, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/2122830981936669/", "size": "S", "sk": ["S"], "cond": "Used - like new", "brand": "Cult", "desc": "Y2K cream cult tee shirt \nSize small \nGreat fit \nGreat condition, no stains or flaws\nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/2122830981936669-0.jpg", "img/2122830981936669-1.jpg", "img/2122830981936669-2.jpg", "img/2122830981936669-3.jpg", "img/2122830981936669-4.jpg"]}, {"id": "1479351714010721", "name": "Hanes graphic tee", "price": 15, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/1479351714010721/", "size": "XL", "sk": ["XL"], "cond": "Used - Fair", "brand": "", "desc": "Baggy fitting Hanes graphic tee \nSize xl \nPretty good condition, graphic is starting to crack due to age, paint by bottom opening and right sleeve, see photos \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery across Kamloops", "imgs": ["img/1479351714010721-0.jpg", "img/1479351714010721-1.jpg", "img/1479351714010721-2.jpg", "img/1479351714010721-3.jpg", "img/1479351714010721-4.jpg"], "was": 25}, {"id": "1793419688643062", "name": "Tna blank pullover hoodie", "price": 15, "cat": "Hoodies & Sweaters", "fb": "https://www.facebook.com/marketplace/item/1793419688643062/", "size": "XS/S", "sk": ["XS", "S"], "cond": "Used - Good", "brand": "", "desc": "Grey Tna blank pullover hoodie\nSize xs/s\nGreat condition, no stains or flaws \nDm for any measurements or questions \nCome pick up or shipping available\n$10 for local delivery", "imgs": ["img/1793419688643062-0.jpg", "img/1793419688643062-1.jpg"], "was": 25}, {"id": "970073419498634", "name": "vintage Vibe denim", "price": 30, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/970073419498634/", "size": "34x31", "sk": ["W34"], "cond": "Used - Good", "brand": "Vibes vintage denim", "desc": "Vintage vibe y2k 5 pocket denim \nSuper nice wash\nSize 34x31 \nGreat condition, no stains or flaws\nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery\nTags\nDenim\nBaggyjeans\nY2K\nVintage", "imgs": ["img/970073419498634-0.jpg", "img/970073419498634-1.jpg", "img/970073419498634-2.jpg", "img/970073419498634-3.jpg"], "was": 35}, {"id": "1668650661561300", "name": "Cotopaxi teca fleece full zip", "price": 45, "cat": "Hoodies & Sweaters", "fb": "https://www.facebook.com/marketplace/item/1668650661561300/", "size": "M/L", "sk": ["M", "L"], "cond": "Used - like new", "brand": "Cotopaxi", "desc": "Cotopaxi teca fleece full zip \nSize ML\nGreat condition, no stains or flaws\nDm for any measurements or question \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1668650661561300-0.jpg", "img/1668650661561300-1.jpg", "img/1668650661561300-2.jpg"]}, {"id": "1112784631233338", "name": "Polo Ralph Lauren v neck sweater", "price": 20, "cat": "Hoodies & Sweaters", "fb": "https://www.facebook.com/marketplace/item/1112784631233338/", "size": "L", "sk": ["L"], "cond": "Used - like new", "brand": "", "desc": "Polo Ralph Lauren v neck sweater\n100% cotton \nSize large \nDm for any measurements or questions\nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1112784631233338-0.jpg", "img/1112784631233338-1.jpg", "img/1112784631233338-2.jpg"], "was": 25}, {"id": "1119615824035624", "name": "Ralph Lauren polo", "price": 25, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/1119615824035624/", "size": "XL", "sk": ["XL"], "cond": "Used - like new", "brand": "", "desc": "Black Ralph Lauren polo\nSize xl custom slim fit \nGreat condition, no stains\nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1119615824035624-0.jpg", "img/1119615824035624-1.jpg", "img/1119615824035624-2.jpg"]}, {"id": "1796895264690548", "name": "Levi’s 514 jeans", "price": 30, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/1796895264690548/", "size": "38x32", "sk": ["W38"], "cond": "Used - like new", "brand": "Levi’s", "desc": "5 pocket Levi’s 514 \nSize 38x32\nGreat condition \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1796895264690548-0.jpg", "img/1796895264690548-1.jpg", "img/1796895264690548-2.jpg", "img/1796895264690548-3.jpg"]}, {"id": "1124936060189254", "name": "Gap zip up", "price": 25, "cat": "Hoodies & Sweaters", "fb": "https://www.facebook.com/marketplace/item/1124936060189254/", "size": "XL", "sk": ["XL"], "cond": "Used - Good", "brand": "", "desc": "Black gap zip up \nSize xl \nGreat condition\nDm for any measurements or questions \nCome pick up or shipping available\n$10 for local delivery", "imgs": ["img/1124936060189254-0.jpg", "img/1124936060189254-1.jpg", "img/1124936060189254-2.jpg"]}, {"id": "3901692110004832", "name": "BDB jeans", "price": 20, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/3901692110004832/", "size": "36x32", "sk": ["W36"], "cond": "Used - Good", "brand": "BuffaloDavidBitton", "desc": "Baggy 5 pocket BDB Jeans\nSize 36x32 \nGood condition, no stains or flaws\nDm for any measurements or questions\nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/3901692110004832-0.jpg", "img/3901692110004832-1.jpg", "img/3901692110004832-2.jpg", "img/3901692110004832-3.jpg"], "was": 30}, {"id": "5061381617421700", "name": "Old navy camo workwear pants", "price": 35, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/5061381617421700/", "size": "32x32", "sk": ["W32"], "cond": "New", "brand": "Oldnavy", "desc": "90s loose fit 5 pocket gap camo workwear pants \nSize 32x32\nGreat condition, no stains no flaws\nDm for any measurements or questions\nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/5061381617421700-0.jpg", "img/5061381617421700-1.jpg", "img/5061381617421700-2.jpg", "img/5061381617421700-3.jpg"], "was": 45}, {"id": "2312281829522602", "name": "Embroidered single swoosh Nike sweatshirt", "price": 25, "cat": "Hoodies & Sweaters", "fb": "https://www.facebook.com/marketplace/item/2312281829522602/", "size": "M", "sk": ["M"], "cond": "Used - Good", "brand": "", "desc": "Single swoosh nike sweatshirt \nSize medium \nGood condition, no stains or flaws \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/2312281829522602-0.jpg", "img/2312281829522602-1.jpg", "img/2312281829522602-2.jpg", "img/2312281829522602-3.jpg", "img/2312281829522602-4.jpg"]}, {"id": "1629027261915161", "name": "rock&republic jeans", "price": 40, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/1629027261915161/", "size": "36x32", "sk": ["W36"], "cond": "Used - Good", "brand": "Rock&Republic", "desc": "Baggy Rock&Republic 5 pocket Jeans \nSuper nice fade\nSize 36x32 \nGreat condition, no flaws \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1629027261915161-0.jpg", "img/1629027261915161-1.jpg", "img/1629027261915161-2.jpg", "img/1629027261915161-3.jpg", "img/1629027261915161-4.jpg", "img/1629027261915161-5.jpg"]}, {"id": "1815772872901370", "name": "Ed hardy tee", "price": 25, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/1815772872901370/", "size": "M", "sk": ["M"], "cond": "Used - like new", "brand": "Ed hardy", "desc": "Ed hardy tee shirt \nSize medium \nGreat condition, no stains or flaws \nDm for any measurements or questions \nCome pick up or shipping available \n$10 extra for local delivery", "imgs": ["img/1815772872901370-0.jpg", "img/1815772872901370-1.jpg", "img/1815772872901370-2.jpg"]}, {"id": "1681974750166427", "name": "Vintage Oakley quarter zip", "price": 25, "cat": "Hoodies & Sweaters", "fb": "https://www.facebook.com/marketplace/item/1681974750166427/", "size": "Fits S/M (no tag)", "sk": ["S", "M"], "cond": "Used - Good", "brand": "Oakley", "desc": "Vintage Oakley quarter zip\nSkull tag\n*no size tag* \nFits like s/m\nGood condition, tiny bit of paint on left sleeve under elbow, shown in last photo\nDm for any measurements or questions\nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1681974750166427-0.jpg", "img/1681974750166427-1.jpg", "img/1681974750166427-2.jpg", "img/1681974750166427-3.jpg", "img/1681974750166427-4.jpg"], "was": 40}, {"id": "3017357628656204", "name": "Polo Ralph Lauren pants", "price": 30, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/3017357628656204/", "size": "30x34", "sk": ["W30"], "cond": "Used - like new", "brand": "Polo Ralph Lauren", "desc": "Polo Ralph Lauren pants \nSize 30x34\nGreat condition, no stains or flaws \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/3017357628656204-0.jpg", "img/3017357628656204-1.jpg", "img/3017357628656204-2.jpg", "img/3017357628656204-3.jpg", "img/3017357628656204-4.jpg"]}, {"id": "28557023190606841", "name": "Point zero jeans", "price": 40, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/28557023190606841/", "size": "34x32", "sk": ["W34"], "cond": "Used - Good", "brand": "Point zero", "desc": "Baggy point zero jeans \nSize 34x32, 8 inch leg opening\nGreat condition, distressed perfectly \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/28557023190606841-0.jpg", "img/28557023190606841-1.jpg", "img/28557023190606841-2.jpg", "img/28557023190606841-3.jpg", "img/28557023190606841-4.jpg"]}, {"id": "28335555522812783", "name": "Abercrombie&fitch polo", "price": 15, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/28335555522812783/", "size": "XL", "sk": ["XL"], "cond": "Used - like new", "brand": "", "desc": "Ambercrombie&fitch polo shirt \nSize xl \nGreat condition, no stains or flaws \nDm for any measurements or questions \nCome pick up or shipping available \n$10 extra for local delivery", "imgs": ["img/28335555522812783-0.jpg", "img/28335555522812783-1.jpg"]}, {"id": "3530900837083108", "name": "Manny pacquiao graphic tee", "price": 20, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/3530900837083108/", "size": "XXL", "sk": ["XXL"], "cond": "Used - like new", "brand": "", "desc": "Manny pacquiao graphic tee \nSize XXL \nGreat condition, no stains or flaws\nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/3530900837083108-0.jpg", "img/3530900837083108-1.jpg", "img/3530900837083108-2.jpg"]}, {"id": "929668553235009", "name": "Nike track pants", "price": 30, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/929668553235009/", "size": "L", "sk": ["L"], "cond": "Used - Good", "brand": "Nike", "desc": "Baggy single swoosh Nike track pants \nSize large \nGood condition, rip in back of left leg shown in last photo \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/929668553235009-0.jpg", "img/929668553235009-1.jpg", "img/929668553235009-2.jpg", "img/929668553235009-3.jpg", "img/929668553235009-4.jpg", "img/929668553235009-5.jpg"], "was": 35}, {"id": "1569462587784759", "name": "Addidas Porsche design shoes", "price": 25, "cat": "Footwear", "fb": "https://www.facebook.com/marketplace/item/1569462587784759/", "size": "US 11.5", "sk": ["US 11.5"], "cond": "Used - like new", "brand": "", "desc": "Adidas Porsche edition shoes \nSize 11.5\nGreat condition\nDm for any questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1569462587784759-0.jpg", "img/1569462587784759-1.jpg", "img/1569462587784759-2.jpg"]}, {"id": "1848419712811979", "name": "New balance skate shoes", "price": 40, "cat": "Footwear", "fb": "https://www.facebook.com/marketplace/item/1848419712811979/", "size": "US 8.5", "sk": ["US 8.5"], "cond": "Used - like new", "brand": "Newbalance", "desc": "suede newbalance sneakers \nSize 8.5 \nGreat condition, flaws shown in photos\nDm for any questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1848419712811979-0.jpg", "img/1848419712811979-1.jpg", "img/1848419712811979-2.jpg", "img/1848419712811979-3.jpg"]}, {"id": "29017301924530687", "name": "Jordan 11 retro low 72-10", "price": 30, "cat": "Footwear", "fb": "https://www.facebook.com/marketplace/item/29017301924530687/", "size": "US 8.5", "sk": ["US 8.5"], "cond": "Used - Fair", "brand": "Jordan", "desc": "Really worn Jordan 11 low \nSize 8.5 \nDecent condition, sole has major yellowing \nDm for any questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/29017301924530687-0.jpg", "img/29017301924530687-1.jpg", "img/29017301924530687-2.jpg", "img/29017301924530687-3.jpg"]}, {"id": "1764050094720722", "name": "True religion sweat shirt", "price": 15, "cat": "Hoodies & Sweaters", "fb": "https://www.facebook.com/marketplace/item/1764050094720722/", "size": "L", "sk": ["L"], "cond": "Used - Fair", "brand": "", "desc": "Men’s true religion sweat shirt \nSize L \nDecent condition, the bottom opening was cut and has frayed since, shown in last two photos \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1764050094720722-0.jpg", "img/1764050094720722-1.jpg", "img/1764050094720722-2.jpg", "img/1764050094720722-3.jpg", "img/1764050094720722-4.jpg"], "was": 20}, {"id": "1784021942672736", "name": "Really baggy Walmart sweats", "price": 10, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/1784021942672736/", "size": "XXL", "sk": ["XXL"], "cond": "Used - like new", "brand": "", "desc": "Men’s baggy Walmart sweats \nSize XXL \nGreat condition, basically new \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1784021942672736-0.jpg", "img/1784021942672736-1.jpg", "img/1784021942672736-2.jpg"], "was": 15}, {"id": "902383219476299", "name": "Billabong plaid shorts", "price": 25, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/902383219476299/", "size": "Waist 34", "sk": ["W34"], "cond": "Used - like new", "brand": "Billabong", "desc": "Super nice plaid billabong shorts \nSize 34 \nGood condition, stains shown in last photo\nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/902383219476299-0.jpg", "img/902383219476299-1.jpg", "img/902383219476299-2.jpg", "img/902383219476299-3.jpg"]}, {"id": "2331961660960949", "name": "Quick sliver pull over hoodie", "price": 35, "cat": "Hoodies & Sweaters", "fb": "https://www.facebook.com/marketplace/item/2331961660960949/", "size": "L", "sk": ["L"], "cond": "Used - like new", "brand": "", "desc": "Men’s quicksilver pull over hoodie \nSize large\nGreat condition, no stains or flaws \nDm for any measurements or questions\nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/2331961660960949-0.jpg", "img/2331961660960949-1.jpg", "img/2331961660960949-2.jpg", "img/2331961660960949-3.jpg"]}, {"id": "1413849373607140", "name": "Vintage duality tee shirt", "price": 20, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/1413849373607140/", "size": "L", "sk": ["L"], "cond": "Used - Good", "brand": "", "desc": "Vintage baggy duality tee shirt \nSize ￼L \nGreat condition, logo is faded due to wear overtime \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1413849373607140-0.jpg", "img/1413849373607140-1.jpg", "img/1413849373607140-2.jpg", "img/1413849373607140-3.jpg"]}, {"id": "979996248450876", "name": "Men’s diesels larkee straight fit jeans", "price": 30, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/979996248450876/", "size": "32x30", "sk": ["W32"], "cond": "Used - like new", "brand": "Diesel", "desc": "Larkee straight fit 5 pocket button fly diesel jeans \nSize 32x30 \nGreat condition, stains from dirt on back on pant leg, shown in last photo \nDm for any measurements or questions \nCome pick up or shipping available\n$10 for local delivery", "imgs": ["img/979996248450876-0.jpg", "img/979996248450876-1.jpg", "img/979996248450876-2.jpg", "img/979996248450876-3.jpg", "img/979996248450876-4.jpg", "img/979996248450876-5.jpg", "img/979996248450876-6.jpg"]}, {"id": "2016204239098080", "name": "Vintage 2000s Squalo baggy jeans", "price": 40, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/2016204239098080/", "size": "33x32", "sk": ["W33"], "cond": "Used - like new", "brand": "Squalo", "desc": "Men’s squalo vintage baggy 5 pocket denim \nSize 33x32 really baggy fit \nGreat condition, no stains no flaws \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery\nTags\nBaggyjeans\nY2K\nStreetwear\nVintage\n2000s", "imgs": ["img/2016204239098080-0.jpg", "img/2016204239098080-1.jpg", "img/2016204239098080-2.jpg", "img/2016204239098080-3.jpg", "img/2016204239098080-4.jpg"], "was": 45}, {"id": "1415796723852105", "name": "Vintage 2000s Japanese denim evisu jorts", "price": 85, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/1415796723852105/", "size": "Waist 33", "sk": ["W33"], "cond": "Used - like new", "brand": "Evisu", "desc": "Vintage 2000s evisu Japanese denim jorts\nButton fly \nSize 33 \nGreat condition no stains or flaws \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1415796723852105-0.jpg", "img/1415796723852105-1.jpg", "img/1415796723852105-2.jpg", "img/1415796723852105-3.jpg", "img/1415796723852105-4.jpg", "img/1415796723852105-5.jpg", "img/1415796723852105-6.jpg"]}, {"id": "2185225395705400", "name": "Vintage 2005 Harley Davidson tee shirt", "price": 35, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/2185225395705400/", "size": "L", "sk": ["L"], "cond": "Used - Good", "brand": "Harley Davidson", "desc": "Super good condition vintage Edmonton Alberta Harley Davidson shirt \nMade in 2005 \nSize large \nGreat condition, no stains, graphic on back starting to fade\nDm for any measurements or questions \nCome pick up or shipping available \n$10 extra for local delivery", "imgs": ["img/2185225395705400-0.jpg", "img/2185225395705400-1.jpg", "img/2185225395705400-2.jpg"], "was": 55}, {"id": "1794475368411124", "name": "Women’s diesel low rise jeans", "price": 40, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/1794475368411124/", "size": "30x30", "sk": ["W30"], "cond": "Used - Good", "brand": "Diesel", "desc": "Women’s distressed low waist regular straight diesel jeans \nSize 30x30 \nGreat condition, super nice fade, signs of wear\nDm for any measurements or questions \nCome pick up or shipping available \n$10 extra for local delivery", "imgs": ["img/1794475368411124-0.jpg", "img/1794475368411124-1.jpg", "img/1794475368411124-2.jpg", "img/1794475368411124-3.jpg", "img/1794475368411124-4.jpg", "img/1794475368411124-5.jpg", "img/1794475368411124-6.jpg", "img/1794475368411124-7.jpg"], "was": 45}, {"id": "1091584476563674", "name": "Hurley waffle long sleeve", "price": 15, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/1091584476563674/", "size": "L", "sk": ["L"], "cond": "Used - like new", "brand": "Hurley", "desc": "Large Hurley light weight waffle long sleeve \nSize large, great fit\nGreat condition, no flaws or stains\nDm for any measurements or questions\nCome pick up or shipping available \n$10 extra for local delivery", "imgs": ["img/1091584476563674-0.jpg", "img/1091584476563674-1.jpg"], "was": 30}, {"id": "1048278138041752", "name": "Adidas salvage denim", "price": 35, "cat": "Bottoms", "fb": "https://www.facebook.com/marketplace/item/1048278138041752/", "size": "Waist 31", "sk": ["W31"], "cond": "Used - like new", "brand": "adidas", "desc": "2011 Adidas blue savage denim 5 pocket jeans \nSize 31\nGreat condition, no flaws \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1048278138041752-0.jpg", "img/1048278138041752-1.jpg", "img/1048278138041752-2.jpg", "img/1048278138041752-3.jpg", "img/1048278138041752-4.jpg", "img/1048278138041752-5.jpg"], "was": 55}, {"id": "1553096920178059", "name": "Polo Ralph Lauren waffle longsleeve", "price": 25, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/1553096920178059/", "size": "L", "sk": ["L"], "cond": "Used - Good", "brand": "", "desc": "Grey Polo ralph Lauren waffle long sleeve\n100% cotton \nSize L\nGreat condition, paint on sleeve, shown in last two photos \nDm for any measurements or questions \nCome pick up or shipping available \n$10 extra for local delivery", "imgs": ["img/1553096920178059-0.jpg", "img/1553096920178059-1.jpg", "img/1553096920178059-2.jpg", "img/1553096920178059-3.jpg", "img/1553096920178059-4.jpg", "img/1553096920178059-5.jpg"], "was": 32}, {"id": "1615510826588187", "name": "DC button up", "price": 25, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/1615510826588187/", "size": "XL", "sk": ["XL"], "cond": "Used - like new", "brand": "Dc", "desc": "Super cool dc button up \nSize xl \nGreat condition, no flaws \nDm for any measurements or questions \nCome pick up or shipping available\n$10 for local delivery", "imgs": ["img/1615510826588187-0.jpg", "img/1615510826588187-1.jpg", "img/1615510826588187-2.jpg", "img/1615510826588187-3.jpg"], "was": 30}, {"id": "1069571635954528", "name": "Vintage blank starter fleeced hood hoodie", "price": 25, "cat": "Hoodies & Sweaters", "fb": "https://www.facebook.com/marketplace/item/1069571635954528/", "size": "M", "sk": ["M"], "cond": "Used - like new", "brand": "", "desc": "Vintage blank grey starter hoodie \nSize medium \nGreat condition, no flaws \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1069571635954528-0.jpg", "img/1069571635954528-1.jpg", "img/1069571635954528-2.jpg"], "was": 35}, {"id": "1800451984428195", "name": "Coors light tee", "price": 20, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/1800451984428195/", "size": "L", "sk": ["L"], "cond": "Used - Good", "brand": "", "desc": "Coors light tee shirt \nSize large \nGood condition, hole on left side by collar, see last photo \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1800451984428195-0.jpg", "img/1800451984428195-1.jpg", "img/1800451984428195-2.jpg"]}, {"id": "1064364383260968", "name": "Quick silver tee", "price": 12, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/1064364383260968/", "size": "XL", "sk": ["XL"], "cond": "Used - Good", "brand": "Quick silver", "desc": "Orange quick silver tee shirt \nSize XL \nGreat condition, logo is fading \nDm for any measurements or questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1064364383260968-0.jpg", "img/1064364383260968-1.jpg", "img/1064364383260968-2.jpg"], "was": 17}, {"id": "38445621681752732", "name": "Vintage Nike long sleeve sweatshirt", "price": 40, "cat": "Hoodies & Sweaters", "fb": "https://www.facebook.com/marketplace/item/38445621681752732/", "size": "M", "sk": ["M"], "cond": "Used - like new", "brand": "Nike", "desc": "Really nice fitting vintage baggy nike sweatshirt \nMade in Canada, 90s tag \nSize medium \nDm for any measurements or questions\nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/38445621681752732-0.jpg", "img/38445621681752732-1.jpg", "img/38445621681752732-2.jpg"]}, {"id": "2172929450271354", "name": "Genuine leather diesel belt", "price": 25, "cat": "Accessories", "fb": "https://www.facebook.com/marketplace/item/2172929450271354/", "size": "Waist 36–40", "sk": ["W36", "W38"], "cond": "Used - Good", "brand": "Diesel", "desc": "Brown genuine leather diesels belt with white stitching\nSize 36 - 38\nGreat condition \nDm for any extra measurements or questions\nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/2172929450271354-0.jpg", "img/2172929450271354-1.jpg", "img/2172929450271354-2.jpg"]}, {"id": "1115732604358507", "name": "Distillery apparel zip up hoodie", "price": 20, "cat": "Hoodies & Sweaters", "fb": "https://www.facebook.com/marketplace/item/1115732604358507/", "size": "XL", "sk": ["XL"], "cond": "Used - like new", "brand": "", "desc": "Red distillery apparel zip up \nSize xl \nDm any questions\nCome pick up or shipping available \n$10 local delivery", "imgs": ["img/1115732604358507-0.jpg", "img/1115732604358507-1.jpg", "img/1115732604358507-2.jpg"]}, {"id": "1076274918466251", "name": "Harley Davidson tee", "price": 25, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/1076274918466251/", "size": "L", "sk": ["L"], "cond": "Used - like new", "brand": "Harley Davidson", "desc": "Vancouver island bc Harley Davidson tee shirt \nSize large \nDm any questions\nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1076274918466251-0.jpg", "img/1076274918466251-1.jpg", "img/1076274918466251-2.jpg", "img/1076274918466251-3.jpg", "img/1076274918466251-4.jpg"], "was": 30}, {"id": "915975431233270", "name": "Diesel tee", "price": 15, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/915975431233270/", "size": "XXL", "sk": ["XXL"], "cond": "Used - Good", "brand": "Diesel", "desc": "White diesel baggy tee shirt \nSize xxl\nFeel free to Dm any questions \nCome pickup or shipping available \n$10 for local pickup", "imgs": ["img/915975431233270-0.jpg", "img/915975431233270-1.jpg"]}, {"id": "1156081276851026", "name": "Heavy weight Abercrombie & Fitch blank zip up", "price": 20, "cat": "Hoodies & Sweaters", "fb": "https://www.facebook.com/marketplace/item/1156081276851026/", "size": "L", "sk": ["L"], "cond": "Used - Fair", "brand": "Abercrombie&Fitch", "desc": "Super nice baggy white heavy weight Abercrombie&Fitch blank zip up\nSize large \nStain on left side shown in last photo \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/1156081276851026-0.jpg", "img/1156081276851026-1.jpg", "img/1156081276851026-2.jpg", "img/1156081276851026-3.jpg"], "was": 25}, {"id": "3013157109076566", "name": "Orange large Oakley polo", "price": 15, "cat": "Tops", "fb": "https://www.facebook.com/marketplace/item/3013157109076566/", "size": "L", "sk": ["L"], "cond": "Used - like new", "brand": "Oakley", "desc": "Orange Oakley collared polo shirt\nSize large \nDm for measurements or any questions \nCome pick up or shipping available \n$10 for local delivery", "imgs": ["img/3013157109076566-0.jpg", "img/3013157109076566-1.jpg", "img/3013157109076566-2.jpg", "img/3013157109076566-3.jpg", "img/3013157109076566-4.jpg"], "was": 25}];
+const $=s=>document.querySelector(s);
+const fmt=n=>"$"+n;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let cat="All",q="",fs="",fp="",so="";
+
+$("#strip").textContent=("ALL SALES FINAL — NO RETURNS, REFUNDS, OR EXCHANGES ✦ NEW DROPS WEEKLY ✦ LOCAL PICKUP IN KAMLOOPS ✦ ALL PRICES IN CAD ✦ ").repeat(6);
+
+const cats=["All","Sale",...new Set(PRODUCTS.map(p=>p.cat))];
+$("#chips").innerHTML=cats.map(c=>`<button class="chip" data-c="${c}" id="chip-${c.replace(/\W/g,'')}" aria-pressed="false">${c==="Sale"?"On sale":c}</button>`).join("");
+$("#chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(b){cat=b.dataset.c;render()}});
+$("#navSale").addEventListener("click",()=>{cat="Sale";render()});
+
+/* size options grouped by type, built from what's actually listed */
+const keys=new Set(PRODUCTS.flatMap(p=>p.sk));
+const ORDER=["XS","S","M","L","XL","XXL"];
+const grp=(lab,arr,f)=>arr.length?`<optgroup label="${lab}">${arr.map(k=>`<option value="${k}">${f(k)}</option>`).join("")}</optgroup>`:"";
+$("#fSize").innerHTML=`<option value="">Any size</option>`+
+  grp("Tops & hoodies",ORDER.filter(k=>keys.has(k)),k=>k)+
+  grp("Pants (waist)",[...keys].filter(k=>/^W\d/.test(k)).sort(),k=>"Waist "+k.slice(1))+
+  grp("Shoes",[...keys].filter(k=>k.startsWith("US")).sort((a,b)=>parseFloat(a.slice(3))-parseFloat(b.slice(3))),k=>k)+
+  grp("Hats",keys.has("One size")?["One size"]:[],k=>k);
+$("#fSize").onchange=e=>{fs=e.target.value;render()};
+$("#fPrice").onchange=e=>{fp=e.target.value;render()};
+$("#fSort").onchange=e=>{so=e.target.value;render()};
+$("#q").addEventListener("input",e=>{q=e.target.value.toLowerCase();render()});
+$("#clear").onclick=()=>{fs=fp=so=q="";cat="All";$("#fSize").value=$("#fPrice").value=$("#fSort").value=$("#q").value="";render()};
+
+function render(){
+  document.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.c===cat));
+  const [lo,hi]=fp?fp.split("-").map(Number):[0,1e9];
+  let list=PRODUCTS.map((p,i)=>({...p,i})).filter(p=>
+    (cat==="All"||(cat==="Sale"?p.was:p.cat===cat))&&
+    (!fs||p.sk.includes(fs))&&p.price>=lo&&p.price<=hi&&
+    (!q||(p.name+" "+p.cat+" "+p.brand+" "+p.size).toLowerCase().includes(q)));
+  if(so)list.sort((a,b)=>so==="lo"?a.price-b.price:b.price-a.price);
+  $("#clear").hidden=!(fs||fp||so||q||cat!=="All");
+  $("#count").textContent=`${list.length} piece${list.length===1?"":"s"}`;
+  $("#grid").innerHTML=list.length?list.map(p=>`
+    <button class="card" data-i="${p.i}" aria-label="${esc(p.name)}, ${fmt(p.price)}${p.size?", size "+esc(p.size):""}">
+      <div class="thumb"><img src="t/${p.id}.jpg" alt="" loading="lazy" width="360" height="360"></div>
+      <span class="tag">${fmt(p.price)}${p.was?`<s>${fmt(p.was)}</s>`:""}</span>
+      <span class="info"><span>${esc(p.name)}</span><span>${p.size?esc(p.size):""}</span><span class="pt">${fmt(p.price)}${p.was?` <s>${fmt(p.was)}</s>`:""}</span></span>
+    </button>`).join(""):`<p class="empty">Nothing matches those filters. Try a different size or price, or clear filters.</p>`;
+}
+$("#grid").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)open(+c.dataset.i)});
+
+/* gallery: scroll-snap track gives swipe for free; buttons, dots and arrow keys move it */
+const track=$("#track");let N=0;
+const cur=()=>Math.round(track.scrollLeft/Math.max(1,track.clientWidth));
+const go=n=>track.scrollTo({left:Math.max(0,Math.min(N-1,n))*track.clientWidth,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+function sync(){const c=cur();$("#ctr").textContent=`${c+1} / ${N}`;$("#prev").disabled=c===0;$("#next").disabled=c>=N-1;
+  [...$("#dots").children].forEach((d,i)=>d.setAttribute("aria-current",i===c))}
+track.addEventListener("scroll",()=>requestAnimationFrame(sync));
+$("#prev").onclick=()=>go(cur()-1);$("#next").onclick=()=>go(cur()+1);
+$("#dots").onclick=e=>{const b=e.target.closest("button");if(b)go(+b.dataset.n)};
+$("#qv").addEventListener("keydown",e=>{if(e.key==="ArrowLeft"){go(cur()-1);e.preventDefault()}if(e.key==="ArrowRight"){go(cur()+1);e.preventDefault()}});
+
+function open(i){
+  const p=PRODUCTS[i];N=p.imgs.length;track.dataset.i=i;
+  track.innerHTML=p.imgs.map((s,n)=>`<img src="${s}" alt="${esc(p.name)} photo ${n+1} of ${N}" ${n?'loading="lazy"':""}>`).join("");
+  $("#dots").innerHTML=N>1?p.imgs.map((_,n)=>`<button data-n="${n}" aria-label="Photo ${n+1}"></button>`).join(""):"";
+  $("#prev").hidden=$("#next").hidden=$("#ctr").hidden=N<2;
+  $("#qvTitle").textContent=p.name;
+  $("#qvPrice").innerHTML=fmt(p.price)+(p.was?`<s>${fmt(p.was)}</s>`:"");
+  $("#qvDl").innerHTML=[["Size",p.size||"Ask P"],["Condition",p.cond],["Brand",p.brand],["Category",p.cat],["Pickup","Kamloops, BC"]].filter(r=>r[1]).map(r=>`<dt>${r[0]}</dt><dd>${esc(r[1])}</dd>`).join("");
+  $("#qvFb").href=p.fb;
+  $("#qvDesc").textContent=p.desc;
+  $("#qv").showModal();track.scrollLeft=0;sync();track.focus({preventScroll:true});
+}
+/* lightbox: click a pop-up photo to view it large */
+let lbP=null,lbI=0;
+function lbShow(){const n=lbP.imgs.length;$("#lbImg").src=lbP.imgs[lbI];$("#lbImg").alt=`${lbP.name} photo ${lbI+1} of ${n}`;$("#lbCtr").textContent=`${lbI+1} / ${n}`;$("#lbPrev").disabled=lbI===0;$("#lbNext").disabled=lbI>=n-1;$("#lbPrev").hidden=$("#lbNext").hidden=n<2}
+const lbGo=d=>{const n=lbP.imgs.length;const j=Math.max(0,Math.min(n-1,lbI+d));if(j!==lbI){lbI=j;lbShow()}};
+track.addEventListener("click",e=>{if(e.target.tagName!=="IMG")return;lbP=PRODUCTS[+track.dataset.i];lbI=[...track.children].indexOf(e.target);lbShow();$("#lb").showModal();$("#lbX").focus()});
+$("#lbPrev").onclick=()=>lbGo(-1);$("#lbNext").onclick=()=>lbGo(1);
+$("#lbX").onclick=()=>$("#lb").close();
+$("#lbIn").onclick=e=>{if(e.target.id==="lbIn")$("#lb").close()};
+$("#lb").addEventListener("keydown",e=>{if(e.key==="ArrowLeft"){lbGo(-1);e.preventDefault()}if(e.key==="ArrowRight"){lbGo(1);e.preventDefault()}e.stopPropagation()});
+$("#lb").addEventListener("close",()=>{go(lbI)});
+let tx=null;$("#lb").addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});
+$("#lb").addEventListener("touchend",e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)lbGo(dx<0?1:-1);tx=null});
+$("#close").addEventListener("click",()=>$("#qv").close());
+$("#qv").addEventListener("click",e=>{if(e.target===$("#qv"))$("#qv").close()});
+render();
+</script>
+
+</body>
+</html>
